@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "******************************************************"
+echo "*                                                    *"
+echo "*  EC_USERNAME = $EC_USERNAME                        *"
+echo "*                                                    *"
+echo "******************************************************"
+
 PASS=`cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 10`
 sudo useradd -s /bin/bash -d /home/$EC_USERNAME -m -p `openssl passwd -1 $PASS` $EC_USERNAME
 sudo adduser $EC_USERNAME admin
