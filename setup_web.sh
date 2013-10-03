@@ -8,6 +8,7 @@ if [ -z $MYSQL_ADMIN_PASSWORD ]; then
   echo "* MYSQL_ADMIN_PASSWORD not set, can't proceed *"
   echo "*                                             *"
   echo "***********************************************"
+  sleep 3
   exit 1;
 fi 
 
