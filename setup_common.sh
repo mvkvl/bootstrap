@@ -11,7 +11,8 @@
 
 # secure an instance (if username is set)
 if [ $EC_USERNAME != "ubuntu" ]; then
-  bootstrap/secure.sh
+  #bootstrap/
+    ./secure.sh
 else
   cd /home/ubuntu
 # make links for dotfiles
