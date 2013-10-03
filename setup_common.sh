@@ -10,8 +10,8 @@
 #sudo echo "/swapfile  swap      swap    defaults         0 0" > /etc/fstab
 
 # secure an instance
+echo "GIVEN USER NAME = $USERNAME"
 if [ $USERNAME != "ubuntu" ]; then
-  echo "SETUP: USERNAME = $USERNAME"
   bootstrap/secure.sh 
 fi
 
