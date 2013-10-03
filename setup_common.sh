@@ -3,11 +3,20 @@
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup.
 
+cd $HOME
+if [ -d ./startup/ ]; then
+    mv startup startup.old
+fi
+if [ -d .emacs.d/ ]; then
+    mv .emacs.d .emacs.d~
+fi
+
 sudo apt-get install -y git-core
 git clone https://github.com/mvkvl/bootstrap.git
 
 # add 1Gb swap file
 # http://www.rownet.co.uk/adding-swap-space-to-an-amazon-ec2-micro-instance/
+echo "generating swap...."
 sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -36,6 +45,3 @@ sudo apt-get -y install htop mc
 sudo apt-add-repository -y ppa:cassou/emacs
 sudo apt-get update
 sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
-
-# sudo apt-get -y upgrade
-# sudo reboot
