@@ -16,8 +16,7 @@ echo "******************************************************"
 if [ $EC_USERNAME != "ubuntu" ]; then
   bootstrap/secure.sh
 else
-  cd ~
-  git clone https://github.com/mvkvl/bootstrap.git
+  cd /home/ubuntu
 # make links for dotfiles
   ln -sb bootstrap/.screenrc .
   ln -sb bootstrap/.bash_profile .
