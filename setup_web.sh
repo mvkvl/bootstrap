@@ -2,6 +2,15 @@
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup. 
 
+if [ -z $MYSQL_ADMIN_PASSWORD ]; then
+  echo "***********************************************"
+  echo "*                                             *"
+  echo "* MYSQL_ADMIN_PASSWORD not set, can't proceed *"
+  echo "*                                             *"
+  echo "***********************************************"
+  exit 1;
+fi 
+
 # install apache'n'friends
 sudo apt-get -q -y install apache2 php5 libapache2-mod-php5
 sudo a2enmod rewrite
