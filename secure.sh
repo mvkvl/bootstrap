@@ -23,8 +23,8 @@ ln -sf bootstrap/.emacs.d .
 
 mkdir .ssh
 chmod -R 700 .ssh
-sudo cp ~ubuntu/.ssh/authorized_keys ~/.ssh
-sudo chown -R `whoami`:`whoami` ~/.ssh
+sudo cp ~ubuntu/.ssh/authorized_keys ~`whoami`/.ssh
+sudo chown -R `whoami`:`whoami` ~`whoami`/.ssh
 
 sudo cp /etc/ssh/sshd_config /tmp
 sudo chmod a+rw /tmp/sshd_config
