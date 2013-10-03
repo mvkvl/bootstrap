@@ -26,7 +26,7 @@ else
 fi
 
 # Install neded packages
-sudo apt-get -y install htop mc
+# sudo apt-get -y install htop mc
 
 # https://launchpad.net/~cassou/+archive/emacs
 # sudo apt-add-repository -y ppa:cassou/emacs
