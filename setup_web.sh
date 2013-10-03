@@ -13,11 +13,14 @@ sudo a2enmod headers
 sudo a2enmod deflate
 sudo mkdir -p /var/www
 
-echo "<?php phpinfo()?>" > /var/www/test.php
-echo "<html><body><h2>It seems to be working!</h2></body></html>" > /var/www/test.html
 
 # install wordpress
 
 
 # chown
+echo "<?php phpinfo()?>" > /tmp/test.php
+echo "<html><body><h2>It seems to be working!</h2></body></html>" > /tmp/test.html
+sudo mv /tmp/test.php  /var/www
+sudo mv /tmp/test.html /var/www
+
 sudo chown -R www-data:www-data /var/www
