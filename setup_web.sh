@@ -3,7 +3,7 @@
 # for headless setup. 
 
 # install apache'n'friends
-sudo apt-get -qy install apache2 php5 libapache2-mod-php5
+sudo apt-get -q -y install apache2 php5 libapache2-mod-php5
 sudo a2enmod rewrite
 sudo a2enmod expires
 sudo a2enmod headers
@@ -11,9 +11,9 @@ sudo a2enmod deflate
 sudo mkdir -p /var/www
 
 # install mysql
-sudo echo "mysql-server mysql-server/root_password password 123" | sudo debconf-set-selections
-sudo echo "mysql-server mysql-server/root_password_again password 123" | sudo debconf-set-selections
-sudo apt-get -qy install mysql-server mysql-client php5-mysql libapache2-mod-auth-mysql
+sudo echo "mysql-server mysql-server/root_password password $MYSQL_ADMIN_PASSWORD" | sudo debconf-set-selections
+sudo echo "mysql-server mysql-server/root_password_again password $MYSQL_ADMIN_PASSWORD" | sudo debconf-set-selections
+sudo apt-get -q -y install mysql-server mysql-client php5-mysql libapache2-mod-auth-mysql
 
 # install wordpress
 

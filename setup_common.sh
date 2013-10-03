@@ -11,7 +11,7 @@ if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
 
-sudo apt-get install -y git-core
+sudo apt-get install -q -y git-core
 git clone https://github.com/mvkvl/bootstrap.git
 
 # add 1Gb swap file
@@ -39,9 +39,9 @@ else
 fi
 
 # Install neded packages
-sudo apt-get -y install htop mc
+sudo apt-get -q -y install htop mc
 
 # https://launchpad.net/~cassou/+archive/emacs
 sudo apt-add-repository -y ppa:cassou/emacs
 sudo apt-get update
-sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
+sudo apt-get install -q -y emacs24 emacs24-el emacs24-common-non-dfsg
