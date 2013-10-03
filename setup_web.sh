@@ -11,8 +11,8 @@ sudo a2enmod deflate
 sudo mkdir -p /var/www
 
 # install mysql
-echo "mysql-server mysql-server/root_password password 123" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password 123" | debconf-set-selections
+sudo echo "mysql-server mysql-server/root_password password 123" | debconf-set-selections
+sudo echo "mysql-server mysql-server/root_password_again password 123" | debconf-set-selections
 sudo apt-get -y install mysql-server
 
 # install wordpress
