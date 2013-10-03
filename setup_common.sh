@@ -19,12 +19,12 @@ else
   cd ~
   git clone https://github.com/mvkvl/bootstrap.git
 # make links for dotfiles
- ln -sb bootstrap/.screenrc .
- ln -sb bootstrap/.bash_profile .
- ln -sb bootstrap/.bashrc .
- ln -sb bootstrap/.bashrc_custom .
- ln -sb bootstrap/.bash_colors .
- ln -sf bootstrap/.emacs.d .
+  ln -sb bootstrap/.screenrc .
+  ln -sb bootstrap/.bash_profile .
+  ln -sb bootstrap/.bashrc .
+  ln -sb bootstrap/.bashrc_custom .
+  ln -sb bootstrap/.bash_colors .
+  ln -sf bootstrap/.emacs.d .
 fi
 
 # Install emacs24
