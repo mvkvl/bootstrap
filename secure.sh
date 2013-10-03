@@ -10,7 +10,7 @@ sudo chmod 440 /tmp/sudoers
 sudo mv /tmp/sudoers /etc
 
 cd /home/$EC_USERNAME
-sudo su $EC_USERNAME
+#sudo su $EC_USERNAME
 
 git clone https://github.com/mvkvl/bootstrap.git
 ln -sb bootstrap/.screenrc .
@@ -22,12 +22,12 @@ ln -sf bootstrap/.emacs.d .
 
 mkdir .ssh
 chmod -R 700 .ssh
-sudo cp /home/ubuntu/.ssh/authorized_keys /home/$USER/.ssh
-sudo chown -R `whoami`:`whoami` /home/$USER/.ssh
+sudo cp /home/ubuntu/.ssh/authorized_keys /home/$EC_USERNAME/.ssh
+sudo chown -R $EC_USERNAME:$EC_USERNAME /home/$EC_USERNAME
 
 sudo cp /etc/ssh/sshd_config /tmp
 sudo chmod a+rw /tmp/sshd_config
-sudo echo "AllowUsers $USER" >> /tmp/sshd_config
+sudo echo "AllowUsers $EC_USERNAME" >> /tmp/sshd_config
 sudo chmod 655 /tmp/sshd_config
 sudo mv /tmp/sshd_config /etc/ssh
 sudo service ssh restart
