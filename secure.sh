@@ -5,7 +5,7 @@ sudo useradd -s /bin/bash -d /home/$EC_USERNAME -m -p $PASS $EC_USERNAME
 sudo adduser $EC_USERNAME admin
 sudo cp /etc/sudoers /tmp
 sudo chmod 666 /tmp/sudoers 
-sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
+sudo echo "$EC_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
 sudo chmod 440 /tmp/sudoers 
 sudo mv /tmp/sudoers /etc
 
