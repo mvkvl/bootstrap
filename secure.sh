@@ -9,8 +9,9 @@ sudo echo "$EC_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
 sudo chmod 440 /tmp/sudoers 
 sudo mv /tmp/sudoers /etc
 
+cd ~$EC_USERNAME
 sudo su $EC_USERNAME
-cd ~
+
 
 git clone https://github.com/mvkvl/bootstrap.git
 ln -sb bootstrap/.screenrc .
