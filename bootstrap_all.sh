@@ -12,7 +12,6 @@ if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
 
-git clone https://github.com/mvkvl/bootstrap.git
 bootstrap/setup_common.sh
 bootstrap/setup_dev.sh
 bootstrap/setup_web.sh

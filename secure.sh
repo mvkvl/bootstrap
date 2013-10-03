@@ -1,14 +1,35 @@
 #!/bin/bash
 
-echo "SECURE USERNAME = $USERNAME"
+PASS=</dev/urandom tr -dc A-Za-z0-9| head -c 10
+sudo useradd -s /bin/bash -d /home/$EC_USERNAME -m -p $PASS $EC_USERNAME
+sudo adduser $EC_USERNAME admin
+sudo cp /etc/sudoers /tmp
+sudo chmod 666 /tmp/sudoers 
+sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
+sudo chmod 440 /tmp/sudoers 
+sudo mv /tmp/sudoers /etc
 
-sudo adduser $USERNAME
-sudo adduser $USERNAME admin
-sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL"
-sudo su $USERNAME
-mkdir ~/.ssh
+sudo su $EC_USERNAME
+cd ~
+
+git clone https://github.com/mvkvl/bootstrap.git
+ln -sb bootstrap/.screenrc .
+ln -sb bootstrap/.bash_profile .
+ln -sb bootstrap/.bashrc .
+ln -sb bootstrap/.bashrc_custom .
+ln -sb bootstrap/.bash_colors .
+ln -sf bootstrap/.emacs.d .
+
+mkdir .ssh
+chmod -R 700 .ssh
 sudo cp ~ubuntu/.ssh/authorized_keys ~/.ssh
-sudo chmod -R 700 ~/.ssh
-sudo chown -R $USERNAME ~/.ssh
-sudo echo "AllowUsers $USERNAME" >> /etc/ssh/sshd_config
+sudo chown -R `whoami`:`whoami` ~/.ssh
+
+sudo cp /etc/ssh/sshd_config /tmp
+sudo chmod a+rw /tmp/sshd_config
+sudo echo "AllowUsers $USER" >> /tmp/sshd_config
+sudo chmod 655 /tmp/sshd_config
+sudo mv /tmp/sshd_config /etc/ssh
 sudo service ssh restart
+exit
+
