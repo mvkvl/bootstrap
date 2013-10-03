@@ -3,6 +3,7 @@
 # for headless setup.
 
 sudo apt-get install -y git-core
+git clone https://github.com/mvkvl/bootstrap.git
 
 # add 1Gb swap file
 # http://www.rownet.co.uk/adding-swap-space-to-an-amazon-ec2-micro-instance/
