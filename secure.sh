@@ -9,9 +9,8 @@ sudo echo "$EC_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
 sudo chmod 440 /tmp/sudoers 
 sudo mv /tmp/sudoers /etc
 
-cd ~$EC_USERNAME
+cd /home/$EC_USERNAME
 sudo su $EC_USERNAME
-
 
 git clone https://github.com/mvkvl/bootstrap.git
 ln -sb bootstrap/.screenrc .
@@ -23,8 +22,8 @@ ln -sf bootstrap/.emacs.d .
 
 mkdir .ssh
 chmod -R 700 .ssh
-sudo cp ~ubuntu/.ssh/authorized_keys ~`whoami`/.ssh
-sudo chown -R `whoami`:`whoami` ~`whoami`/.ssh
+sudo cp /home/ubuntu/.ssh/authorized_keys /home/$USER/.ssh
+sudo chown -R `whoami`:`whoami` /home/$USER/.ssh
 
 sudo cp /etc/ssh/sshd_config /tmp
 sudo chmod a+rw /tmp/sshd_config
@@ -33,4 +32,3 @@ sudo chmod 655 /tmp/sshd_config
 sudo mv /tmp/sshd_config /etc/ssh
 sudo service ssh restart
 exit
-
