@@ -10,13 +10,15 @@ git clone https://github.com/mvkvl/bootstrap.git
 sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 sudo mkswap /swapfile
 sudo swapon /swapfile
-sudo echo "/swapfile  swap      swap    defaults         0 0" > /etc/fstab
+sudo su root
+echo "/swapfile  swap      swap    defaults         0 0" >> /etc/fstab
+exit
 
 # secure an instance (if username is set)
 if [ $EC_USERNAME != "ubuntu" ]; then
   bootstrap/secure.sh
 else
-  cd /home/ubuntu
+# cd /home/ubuntu
 # make links for dotfiles
   ln -sb bootstrap/.screenrc .
   ln -sb bootstrap/.bash_profile .
@@ -35,3 +37,4 @@ sudo apt-get update
 sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 
 # sudo apt-get -y upgrade
+# sudo reboot
