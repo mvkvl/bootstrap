@@ -3,13 +3,15 @@
 PASS=`cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 10`
 sudo useradd -s /bin/bash -d /home/$EC_USERNAME -m -p `openssl passwd -1 $PASS` $EC_USERNAME
 sudo adduser $EC_USERNAME admin
+echo -n "changing sudoers..."
 sudo cp /etc/sudoers /tmp
 sudo chmod 666 /tmp/sudoers 
 sudo echo "$EC_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /tmp/sudoers
 sudo chmod 440 /tmp/sudoers 
 sudo mv /tmp/sudoers /etc
+echo "done"
 
-sudo cd /home/$EC_USERNAME
+cd /home/$EC_USERNAME
 #sudo su $EC_USERNAME
 
 sudo git clone https://github.com/mvkvl/bootstrap.git
@@ -31,4 +33,3 @@ sudo chown -R $EC_USERNAME:$EC_USERNAME /home/$EC_USERNAME
 #sudo chmod 655 /tmp/sshd_config
 #sudo mv /tmp/sshd_config /etc/ssh
 #sudo service ssh restart
-
