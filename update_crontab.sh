@@ -7,8 +7,7 @@ echo $DYNDNS_UPDATE_CMD
 echo
 
 # update crontab for FreeDNS
-if [ -n "$DYNDNS_UPDATE_CMD" ]; then
-  echo "!!!! DYNDNS-UPDATE !!!!"
+if [ false ]; then
   echo "$DYNDNS_UPDATE_CMD" > $HOME/dns-update.sh
   chmod +x $HOME/dns-update.sh
   cp /etc/crontab /tmp
