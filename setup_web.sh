@@ -31,7 +31,7 @@ mysqladmin --user=root --password=$MYSQL_ADMIN_PASSWORD create wordpress
 
 # create user & database
 WP_DB_PASS=`cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 10`
-export $WP_DB_PASS;
+echo  $WP_DB_PASS > /tmp/wp.db.pass
 echo "create database wordpress;" > /tmp/database.sql
 echo "create user 'wordpress'@'localhost' identified by '$WP_DB_PASS';" >> /tmp/database.sql
 echo "grant all privileges on wordpress.* to 'wordpress'@'localhost';" >> /tmp/database.sql

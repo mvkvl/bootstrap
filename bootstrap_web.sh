@@ -18,6 +18,8 @@ curl https://raw.github.com/mvkvl/bootstrap/master/setup_common.sh | bash
 curl https://raw.github.com/mvkvl/bootstrap/master/setup_web.sh | bash
 sudo apt-get -q -y autoremove
 
+WP_DB_PASS=`cat /tmp/wp.db.pass`
+sudo rm /tmp/wp.db.pass
 echo
 echo "Wordpress credentials"
 echo "    db: wordpress"
