@@ -2,6 +2,14 @@
 
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup.
+echo
+echo "*********************************"
+echo "*                               *"
+echo "*     RUNNING SETUP COMMON      *"
+echo "*                               *"
+echo "*********************************"
+echo
+sleep 3
 
 cd $HOME
 if [ -d ./startup/ ]; then

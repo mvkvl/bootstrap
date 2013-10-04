@@ -2,6 +2,15 @@
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup. 
 
+echo
+echo "*********************************"
+echo "*                               *"
+echo "*       RUNNING SETUP WEB       *"
+echo "*                               *"
+echo "*********************************"
+echo
+sleep 3
+
 if [ -z $MYSQL_ADMIN_PASSWORD ]; then
   echo "***********************************************"
   echo "*                                             *"
