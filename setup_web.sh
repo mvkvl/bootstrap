@@ -34,7 +34,7 @@ WP_DB_PASS=`cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 10`
 echo  $WP_DB_PASS > /tmp/wp.db.pass
 echo "create database wordpress;" > /tmp/database.sql
 echo "create user 'wordpress'@'localhost' identified by '$WP_DB_PASS';" >> /tmp/database.sql
-echo "grant all privileges on wordpress.* to 'wordpress'@'localhost';" >> /tmp/database.sql
+echo "grant all privileges on wordpress.* to 'wordpress'@'localhost' identified by '$WP_DB_PASS';" >> /tmp/database.sql
 echo "flush privileges;" >> /tmp/database.sql
 mysql --user=root --password=$MYSQL_ADMIN_PASSWORD < /tmp/database.sql
 
@@ -61,7 +61,7 @@ sudo a2ensite wordpress
 sudo service apache2 restart
 
 # configure wordpress
-sudo cd /var/www
+cd /var/www
 sudo chmod -R 777 wordpress
 
 # create script for change permissions
