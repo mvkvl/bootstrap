@@ -11,8 +11,11 @@ echo $HOME
   sudo chmod +x /tmp/dns-update
   sudo mv /tmp/dns-update $HOME
 
-  sudo echo "# update FreeDNS every 5 minutes" >> /etc/crontab
-  sudo echo "*/5 *   * * *   kami    /home/kami/work/scripts/freedns.update" >> /etc/crontab
+  sudo cp /etc/crontab /tmp
+  sudo echo "" >> /tmp/crontab
+  sudo echo "# update FreeDNS every 5 minutes" >> /tmp/crontab
+  sudo echo "*/5 *   * * *   kami    /home/kami/work/scripts/freedns.update" >> /tmp/crontab
+  sudo mv /tmp/crontab /etc/
 
   echo "----- crontab ------"
   cat /etc/crontab
