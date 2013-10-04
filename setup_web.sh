@@ -79,7 +79,7 @@ sudo mv /tmp/test.html /var/www
 # update crontab
 if [ -n "$DYNDNS_UPDATE_CMD" ]; then
   echo "!!!! DYNDNS-UPDATE !!!!"
-#  $HOME/bootstrap/update_crontab.sh
+  $HOME/bootstrap/update_crontab.sh
 fi
 
 # chown
