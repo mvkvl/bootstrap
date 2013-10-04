@@ -85,13 +85,14 @@ echo "<html><body><h2>It seems to be working!</h2></body></html>" > /tmp/test.ht
 sudo mv /tmp/test.php  /var/www
 sudo mv /tmp/test.html /var/www
 
-# update crontab
-echo "----- check for update -----"
-echo "$DYNDNS_UPDATE_CMD"
+# update dynamic dns record
 if [ -n "$DYNDNS_UPDATE_CMD" ]; then
-  echo "----- do update -----"
-  echo "!!!! DYNDNS-UPDATE !!!!"
-  $HOME/bootstrap/update_crontab.sh
+  echo "----- do dns update -----"
+  set +o noclobber
+  echo "#!/bin/bash"         > $HOME/dns-update
+  echo "$DYNDNS_UPDATE_CMD" >> $HOME/dns-update
+  chmod +x $HOME/dns-update
+  $HOME/dns-update
 fi
 
 # chown
