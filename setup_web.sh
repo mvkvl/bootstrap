@@ -49,30 +49,33 @@ echo "flush privileges;" >> /tmp/database.sql
 mysql --user=root --password=$MYSQL_ADMIN_PASSWORD < /tmp/database.sql
 
 # install wordpress
-cd /tmp
-wget http://wordpress.org/latest.tar.gz
-sleep 10
-tar xfvz latest.tar.gz
-sudo mv wordpress /var/www
+if [ -n "$WP_VERSION" ]; then
+  cd /tmp
+  wget "http://ru.wordpress.org/wordpress-$WP_VERSION-ru_RU.tar.gz" -O wordpress.tar.gz
+  #wget http://wordpress.org/latest.tar.gz
+  sleep 10
+  tar xfvz wordpress.tar.gz
+  sudo mv wordpress /var/www
 
-echo "<VirtualHost *:80>"                 > /tmp/wordpress.apache
-echo "  ServerName $EC_HOSTNAME"         >> /tmp/wordpress.apache
-echo "  DocumentRoot /var/www/wordpress" >> /tmp/wordpress.apache
-echo "  DirectoryIndex index.php"        >> /tmp/wordpress.apache
-echo "  <Directory /var/www/wordpress/>" >> /tmp/wordpress.apache
-echo "    AllowOverride All"             >> /tmp/wordpress.apache
-echo "    Order Deny,Allow"              >> /tmp/wordpress.apache
-echo "    Allow from all"                >> /tmp/wordpress.apache
-echo "  </Directory>"                    >> /tmp/wordpress.apache
-echo "</VirtualHost>"                    >> /tmp/wordpress.apache
+  echo "<VirtualHost *:80>"                 > /tmp/wordpress.apache
+  echo "  ServerName $EC_HOSTNAME"         >> /tmp/wordpress.apache
+  echo "  DocumentRoot /var/www/wordpress" >> /tmp/wordpress.apache
+  echo "  DirectoryIndex index.php"        >> /tmp/wordpress.apache
+  echo "  <Directory /var/www/wordpress/>" >> /tmp/wordpress.apache
+  echo "    AllowOverride All"             >> /tmp/wordpress.apache
+  echo "    Order Deny,Allow"              >> /tmp/wordpress.apache
+  echo "    Allow from all"                >> /tmp/wordpress.apache
+  echo "  </Directory>"                    >> /tmp/wordpress.apache
+  echo "</VirtualHost>"                    >> /tmp/wordpress.apache
 
-sudo mv /tmp/wordpress.apache /etc/apache2/sites-available/wordpress
-sudo a2ensite wordpress
-sudo service apache2 restart
+  sudo mv /tmp/wordpress.apache /etc/apache2/sites-available/wordpress
+  sudo a2ensite wordpress
+  sudo service apache2 restart
 
-# configure wordpress
-cd /var/www
-sudo chmod -R 777 wordpress
+  # configure wordpress
+  cd /var/www
+  sudo chmod -R 777 wordpress
+fi
 
 # create script for change permissions
 #echo "sudo find /var/www/wordpress -type d -exec chmod 755 {} \;"  > /tmp/change.permissions.sh
