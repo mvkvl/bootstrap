@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 echo
 echo "*********************************"
 echo "*                               *"
@@ -7,6 +8,9 @@ echo "*     RUNNING BOOTSTRAP WEB     *"
 echo "*                               *"
 echo "*********************************"
 echo
+
+
+echo "DYN DNS CMD = $DYNDNS_UPDATE_CMD"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -28,6 +32,6 @@ echo "  user: wordpress"
 echo "  pass: $WP_DB_PASS"
 echo 
 
-#echo 
-#echo "will reboot in 60 seconds..."
-#sudo shutdown -r 60 &
+#-echo 
+#-echo "will reboot in 60 seconds..."
+#-sudo shutdown -r 60 &
