@@ -27,7 +27,7 @@ sudo echo "mysql-server mysql-server/root_password_again password $MYSQL_ADMIN_P
 sudo apt-get -q -y install mysql-server mysql-client php5-mysql libapache2-mod-auth-mysql
 
 # create database
-mysqladmin --user=root --password=$MYSQL_ADMIN_PASSWORD create wordpress
+# mysqladmin --user=root --password=$MYSQL_ADMIN_PASSWORD create wordpress
 
 # create user & database
 WP_DB_PASS=`cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 10`
@@ -76,18 +76,8 @@ echo "<html><body><h2>It seems to be working!</h2></body></html>" > /tmp/test.ht
 sudo mv /tmp/test.php  /var/www
 sudo mv /tmp/test.html /var/www
 
-# update crontab for FreeDNS
-# rm -rf $HOME/dns-update.sh
-echo "$DYNDNS_UPDATE_CMD" > $HOME/dns-update.sh
-chmod +x $HOME/dns-update.sh
-# sudo rm -rf /tmp/crontab
-cp /etc/crontab /tmp
-sudo chmod 666 /tmp/crontab
-echo ""  > /tmp/crontab
-echo "# update FreeDNS every 5 minutes" >> /tmp/crontab
-echo "*/5 *   * * *   $USER $HOME/dns-update.sh" >> /tmp/crontab
-sudo chmod 644 /tmp/crontab
-sudo mv /tmp/crontab /etc
+# update crontab
+$HOME/bootstrap/update_crontab.sh
 
 # chown
 sudo chown -R www-data:www-data /var/www

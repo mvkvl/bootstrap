@@ -27,4 +27,6 @@ echo "  user: wordpress"
 echo "  pass: $WP_DB_PASS"
 echo 
 
-sudo reboot
+echo 
+echo "will reboot in 60 seconds..."
+sudo shutdown -r 60
