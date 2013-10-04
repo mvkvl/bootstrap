@@ -49,9 +49,9 @@ echo "flush privileges;" >> /tmp/database.sql
 mysql --user=root --password=$MYSQL_ADMIN_PASSWORD < /tmp/database.sql
 
 # install wordpress
-if [ -n "$WP_VERSION" ]; then
+if [ -n "$WP_URL" ]; then
   cd /tmp
-  wget "http://ru.wordpress.org/wordpress-$WP_VERSION-ru_RU.tar.gz" -O wordpress.tar.gz
+  wget "$WP_URL" -O wordpress.tar.gz
   #wget http://wordpress.org/latest.tar.gz
   sleep 10
   tar xfvz wordpress.tar.gz
