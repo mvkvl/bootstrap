@@ -29,4 +29,4 @@ echo
 
 echo 
 echo "will reboot in 60 seconds..."
-sudo shutdown -r 60
+sudo shutdown -r 60 &
