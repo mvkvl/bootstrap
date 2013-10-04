@@ -16,5 +16,5 @@ echo $HOME
   sudo echo "# update FreeDNS every 5 minutes" >> /tmp/crontab
   sudo echo "*/5 * * * * $USER $HOME/dns-update.sh" >> /tmp/crontab
   sudo chmod 644 /tmp/crontab
-  chattr +i /tmp/crontab
+  sudo chattr +i /tmp/crontab
   sudo mv /tmp/crontab /etc
