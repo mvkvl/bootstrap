@@ -6,6 +6,9 @@ echo $HOME
 echo $DYNDNS_UPDATE_CMD
 echo
 
+# if [ -n "$DYNDNS_UPDATE_CMD" ]; then
+# ...
+#fi
 # update crontab for FreeDNS
 # rm -rf $HOME/dns-update.sh
 # echo "$DYNDNS_UPDATE_CMD" > $HOME/dns-update.sh
