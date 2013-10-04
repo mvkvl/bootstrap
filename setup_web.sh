@@ -42,7 +42,7 @@ mysql --user=root --password=$MYSQL_ADMIN_PASSWORD < /tmp/database.sql
 cd /tmp
 wget http://wordpress.org/latest.tar.gz
 sleep 10
-tar -xfvz latest.tar.gz
+tar xfvz latest.tar.gz
 sudo mv wordpress /var/www
 
 echo "<VirtualHost *:80>"                 > /tmp/wordpress.apache
