@@ -13,7 +13,7 @@ if [ -z $MYSQL_ADMIN_PASSWORD ]; then
 fi 
 
 # install apache'n'friends
-sudo apt-get -q -y install apache2 php5 libapache2-mod-php5
+sudo apt-get -y install apache2 php5 libapache2-mod-php5
 sudo a2enmod rewrite
 sudo a2enmod expires
 sudo a2enmod headers
@@ -24,7 +24,7 @@ sudo mkdir -p /var/www
 # http://gercogandia.blogspot.ru/2012/11/automatic-unattended-install-of.html
 sudo echo "mysql-server mysql-server/root_password password $MYSQL_ADMIN_PASSWORD" | sudo debconf-set-selections
 sudo echo "mysql-server mysql-server/root_password_again password $MYSQL_ADMIN_PASSWORD" | sudo debconf-set-selections
-sudo apt-get -q -y install mysql-server mysql-client php5-mysql libapache2-mod-auth-mysql
+sudo apt-get -y install mysql-server mysql-client php5-mysql libapache2-mod-auth-mysql
 
 # create database
 # mysqladmin --user=root --password=$MYSQL_ADMIN_PASSWORD create wordpress
