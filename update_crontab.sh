@@ -8,7 +8,7 @@ echo $HOME
 
 # update crontab for FreeDNS
   sudo echo "$DYNDNS_UPDATE_CMD" > /etc/cron.hourly/dns-update  
-  sudo chmod +x /etc/cron.hourly//dns-update.sh
+  sudo chmod +x /etc/cron.hourly/dns-update
 #  cp /etc/crontab /tmp
 #  sudo chmod 666 /tmp/crontab
 #  sudo chattr -i /tmp/crontab
