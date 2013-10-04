@@ -1,13 +1,12 @@
 #!/bin/bash
 
-echo 
+#echo 
 echo "-------- crontab update ----------"
 echo $HOME
-echo $DYNDNS_UPDATE_CMD
-echo
+#echo $DYNDNS_UPDATE_CMD
+#echo
 
 # update crontab for FreeDNS
-if [ false ]; then
   echo "$DYNDNS_UPDATE_CMD" > $HOME/dns-update.sh
   chmod +x $HOME/dns-update.sh
   cp /etc/crontab /tmp
@@ -19,4 +18,3 @@ if [ false ]; then
   sudo chmod 644 /tmp/crontab
   chattr +i /tmp/crontab
   sudo mv /tmp/crontab /etc
-fi
