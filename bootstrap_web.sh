@@ -22,7 +22,7 @@ WP_DB_PASS=`cat /tmp/wp.db.pass`
 sudo rm /tmp/wp.db.pass
 echo
 echo "Wordpress credentials"
-echo "    db: wordpress"
+echo "    db: wpdb"
 echo "  user: wordpress"
 echo "  pass: $WP_DB_PASS"
 echo 
