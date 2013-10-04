@@ -51,7 +51,7 @@ echo "  DocumentRoot /var/www/wordpress" >> /tmp/wordpress.apache
 echo "  DirectoryIndex index.php"        >> /tmp/wordpress.apache
 echo "  <Directory /var/www/wordpress/>" >> /tmp/wordpress.apache
 echo "    AllowOverride All"             >> /tmp/wordpress.apache
-echo "    Order Deny, Allow"             >> /tmp/wordpress.apache
+echo "    Order Deny,Allow"              >> /tmp/wordpress.apache
 echo "    Allow from all"                >> /tmp/wordpress.apache
 echo "  </Directory>"                    >> /tmp/wordpress.apache
 echo "</VirtualHost>"                    >> /tmp/wordpress.apache
