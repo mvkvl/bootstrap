@@ -11,7 +11,7 @@ echo $HOME
 # sudo chattr -i /tmp/dns-update
 
   set +o noclobber
-  sudo touch /tmp/dns-update
+  #sudo touch /tmp/dns-update
   sudo echo "#!/bin/bash"  > /tmp/dns-update  
   sudo echo "$DYNDNS_UPDATE_CMD" >> /tmp/dns-update  
   sudo chmod +x /tmp/dns-update
