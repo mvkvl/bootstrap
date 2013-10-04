@@ -56,7 +56,7 @@ tar xfvz latest.tar.gz
 sudo mv wordpress /var/www
 
 echo "<VirtualHost *:80>"                 > /tmp/wordpress.apache
-echo "  ServerName $HOSTNAME"            >> /tmp/wordpress.apache
+echo "  ServerName $EC_HOSTNAME"         >> /tmp/wordpress.apache
 echo "  DocumentRoot /var/www/wordpress" >> /tmp/wordpress.apache
 echo "  DirectoryIndex index.php"        >> /tmp/wordpress.apache
 echo "  <Directory /var/www/wordpress/>" >> /tmp/wordpress.apache
