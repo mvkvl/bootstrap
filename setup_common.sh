@@ -43,5 +43,5 @@ sudo apt-get -q -y install htop mc
 
 # https://launchpad.net/~cassou/+archive/emacs
 sudo apt-add-repository -y ppa:cassou/emacs
-# sudo apt-get update
-# sudo apt-get install -q -y emacs24 emacs24-el emacs24-common-non-dfsg
+sudo apt-get update
+sudo apt-get install -q -y emacs24 emacs24-el emacs24-common-non-dfsg
